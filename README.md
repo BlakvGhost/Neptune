@@ -5,7 +5,7 @@
 
 Install Neptune with GitHub
 
-### Make sure you already have Python3 and PHP>=7.4 installed on your machine
+### Make sure you already PHP>=7.4 installed on your machine
 
 ```bash
   git clone https://github.com/BlakvGhost/Neptune.git
