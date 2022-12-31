@@ -1,14 +1,14 @@
 # Neptune
- Neptune is a stock management web application with automatic billing system, inventory management of various shops.
+Neptune is a stock management web application with automatic billing system, inventory management of various shops.
 
 ## Installation
 
 Install Neptune with GitHub
 
-### Make sure you already PHP>=7.4 installed on your machine
+### Make sure you already have Python3 and PHP>=7.4 installed on your machine
 
 ```bash
-  git clone https://github.com/BlakvGhost/Neptune.git
+git clone https://github.com/BlakvGhost/Neptune.git
 ```
 
 Host the project on a local server for your test, or host it on a shared hosting service or a VPS.
@@ -25,6 +25,16 @@ Host the project on a local server for your test, or host it on a shared hosting
 Then dump the **db.sql** into your new database
 
 **You can edit the .env file for your database**
+
+## Test My online hosted App
+
+link: http://neptune-app.42web.io
+
+For login Form, connect you
+
+`Number`: 90010203
+
+`Password`: 90010203
 
 ## Screenshots
 
