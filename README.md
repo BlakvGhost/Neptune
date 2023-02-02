@@ -2,7 +2,6 @@
 Neptune is a stock management web application with automatic billing system, inventory management of various shops.
 
 ## Installation
-
 Install Neptune with GitHub
 
 ### Make sure you already have PHP>=7.4 installed on your machine
