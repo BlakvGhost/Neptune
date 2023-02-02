@@ -41,7 +41,7 @@ For login Form, connect you
 
 ## Tech Stack
 
-**Client:** HTML5, CSS3, ES6, JQuery
+**Client:** HTML5, CSS3, ES6, JQuery, Ajax
 
 **Server:** PHP, CodeIgniter4
 
