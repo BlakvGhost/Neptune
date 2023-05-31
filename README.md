@@ -1,35 +1,59 @@
 # Neptune
-Neptune is a stock management web application with automatic billing system, inventory management of various shops.
+Neptune is a web application for stock management with an automatic billing system and inventory management for various shops.
 
 ## Installation
-Install Neptune with GitHub
+To install Neptune, follow these steps:
 
-### Make sure you already have PHP>=7.4 installed on your machine
+ - Make sure you have `PHP>=7.4` installed on your machine.
+
+ - Clone the Neptune repository from GitHub:
 
 ```bash
 git clone https://github.com/BlakvGhost/Neptune.git
 ```
+Host the project on a local server for testing, or host it on a shared hosting service or a VPS.
 
-Host the project on a local server for your test, or host it on a shared hosting service or a VPS.
+### Option 1: Creating a Virtual Host
 
-  ### Database
-  Create a new database:
-  | Attr             | Value                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Name: | neptune_app|
-| Host: | localhost |
-| password :| "" |
-| user | root |
+ - Open the Apache configuration file (httpd.conf or httpd-vhosts.conf).
 
-Then dump the **db.sql** into your new database
+ - Add the following virtual host configuration:
+```apache
+<VirtualHost *:80>
+    DocumentRoot "/path/to/Neptune/public"
+    ServerName neptune.local
+</VirtualHost>
+```
+ - Save the changes and restart Apache.
 
-**You can edit the .env file for your database**
+### Option 2: Using the Built-in PHP Development Server
 
-## Test My online hosted App
+- Open a terminal and navigate to the project's root directory.
 
-link: http://neptune-app.42web.io
+ - Run the following command:
+```bash
+php spark serve
+```
+ - The project will be served on http://localhost:8080.
 
-For login Form, connect you
+## Database
+
+Follow these steps to set up the database:
+
+- Create a new database with the following details:
+  - Name: `neptune_app`
+  - Host: `localhost`
+  - Password: `(leave it empty)`
+  - User: `root`
+ 
+- Import the `db.sql` file into your new database.
+
+- If needed, you can edit the `.env` file to configure your database settings.
+
+## Test My Online Hosted App
+You can try out the hosted version of the app at http://neptune.kabirou-alassane.com
+
+To log in, use the following credentials:
 
 `Number`: 90010203
 
@@ -58,4 +82,4 @@ For login Form, connect you
 
 ## Support
 
-For support, email me on kabirou2001@gmail.com or join our Slack channel.
+For support, email me on kabirou2001@gmail.com.
