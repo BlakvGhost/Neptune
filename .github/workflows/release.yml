@@ -1,0 +1,51 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_production:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set environment variables - Production
+        run: |
+          echo "CI_ENVIRONMENT=production" >> .env
+          echo "app.sessionDriver='CodeIgniter\Session\Handlers\FileHandler'" >> .env
+          echo "app.sessionCookieName = bht_session" >> .env
+          echo "app.sessionExpiration = 7200" >> .env
+          echo "database.default.hostname=${{ secrets.DB_HOST}}" >> .env
+          echo "database.default.DBDriver = MySQLi" >> .env
+          echo "database.default.database=${{ secrets.DB_NAME }}" >> .env
+          echo "database.default.username=${{ secrets.DB_USERNAME }}" >> .env
+          echo "database.default.password=${{ secrets.DB_PASSWORD }}" >> .env
+          echo "security.tokenName = 'csrf_token_name'" >> .env
+          echo "security.headerName = 'X-CSRF-TOKEN'" >> .env
+          echo "security.cookieName = 'csrf_cookie_name'" >> .env
+          echo "security.expires = 7200" >> .env
+          echo "security.regenerate = true" >> .env
+          echo "security.samesite = 'Lax'" >> .env
+          echo "security.redirect = true" >> .env
+
+      - name: 📂 Sync files - Production
+        uses: SamKirkland/FTP-Deploy-Action@v4.1.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: "${{ secrets.FTP_DIR }}"
+          local-dir: "./"
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/vendor/**
+            **/db.sql*
+            **/env*
+            **/screenshot.png*
